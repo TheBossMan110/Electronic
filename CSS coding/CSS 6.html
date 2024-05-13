@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header
+        {
+            background-color: red;
+            height: 200px;
+            width: 100%;
+            animation-name: ABC;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes ABC
+        {
+            0%{background-color: red;}
+            25%{background-color: blue;}
+            50%{background-color: black;}
+            75%{background-color: brown;}
+            100%{background-color: crimson;}
+        }
+        h1
+        {
+            text-align: center;
+            font-size: 100px;
+            color:gold;
+            animation: ABC 10s infinite;
+        }
+        @keyframes ABC
+        {
+            0%{color: red; font-family: 'Courier New', Courier, monospace;}
+            25%{color: blue; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+            50%{color: black; font-family: cursive;}
+            75%{color: brown; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;}
+            100%{color: crimson; font-family:serif ;} 
+        }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>Hello Aptech</h1></div>
+</body>
+</html>

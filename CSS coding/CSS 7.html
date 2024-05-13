@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle
+        {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: abc 10s infinite;
+        }
+        @keyframes abc
+        {
+            0%{background-color: red; margin-left: 0px; margin-top: 0px;}
+            25%{background-color: green; margin-left: 500px; margin-top: 0px;}
+            50%{background-color: blue; margin-left: 500px; margin-top: 500px;}
+            75%{background-color: yellow; margin-left: 0px; margin-top: 500px;}
+            100%{background-color: pink; margin-left: 0px; margin-top: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+</body>
+</html>
