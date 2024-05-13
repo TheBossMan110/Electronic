@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheBossMan</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #f0f0f0;
+    }
+
+    #quiz-container {
+      width: 500px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s;
+    }
+
+    .options button:hover {
+      background-color: #2980b9;
+    }
+
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quiz-container">
+    <div class="question" id="question">Loading question...</div>
+    <div class="options" id="options"></div>
+    <button onclick="nextQuestion()">Next Question</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Who do u love?",
+        options: ["Papa", "Mama", "Parent", "Urself"],
+        correctAnswer: "Parent"
+      },
+      {
+        question: "what is my hobbies?",
+        options: ["Cricket", "Football", "Sport", "Idk"],
+        correctAnswer: "Sport"
+      },
+      {
+        question: "Who am i?",
+        options: ["The Smartness", "The Wordless", "The Moderate", "The Tenseness"],
+        correctAnswer: "The Moderate"
+      },
+      {
+        question: "U Think I Am Funny????",
+        options: ["Yes","No","Maybe","Why Not"],
+        correctAnswer: "Yes"
+      },
+      {
+        question: "Which One Is My Favourite Color?",
+        options: ["Red","Blue","Brown","Green"],
+        correctAnswer: "Blue"
+      },
+      {
+        question: "What Is My Favourite Food?",
+        options: ["Biryani","Salan","Nihari","Chicken Boti"],
+        correctAnswer: "Chicken Boti"
+      },
+      {
+        question: "What Is My Favourite Desert?",
+        options: ["Custard","Noodles","Cold Coffee","Chocolate Cake"],
+        correctAnswer: "Custard"
+      },
+      {
+        question: "Who Is My Annoying person",
+        options: ["Drunk guy","Quiet guy","Joke guy","Lame guy"],
+        correctAnswer: "Lame guy"
+      },
+      {
+        question: "Hardest Question Ever... What are you",
+        options: ["Everything","Not everything","Cool","Everyone"],
+        correctAnswer: "Everything"
+      },
+      {
+        question: "SO How Was My Quiz?",
+        options: ["Good","Bad","OK","Trash"],
+        correctAnswer: "Good"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userScore = 0;
+
+    function loadQuestion() {
+      const questionElement = document.getElementById('question');
+      const optionsElement = document.getElementById('options');
+      const resultElement = document.getElementById('result');
+
+      if (currentQuestionIndex < quizData.length) {
+        const currentQuestion = quizData[currentQuestionIndex];
+
+        questionElement.textContent = currentQuestion.question;
+        optionsElement.innerHTML = "";
+
+        currentQuestion.options.forEach((option) => {
+          const button = document.createElement('button');
+          button.textContent = option;
+          button.onclick = () => checkAnswer(option);
+          optionsElement.appendChild(button);
+        });
+
+        resultElement.textContent = "";
+      } else {
+        questionElement.textContent = "SO HOW MUCH DID YOU GET. SEND IN MY FAMILY GROUP, NO CHEATING, DO 1 TIME ITS IMPORTANT";
+        optionsElement.innerHTML = "";
+        resultElement.textContent = `Your score: ${userScore}/${quizData.length}`;
+      }
+    }
+
+    function checkAnswer(selectedOption) {
+      const currentQuestion = quizData[currentQuestionIndex];
+
+      if (selectedOption === currentQuestion.correctAnswer) {
+        document.getElementById('result').textContent = "Damn!";
+        userScore++;
+      } else {
+        document.getElementById('result').textContent = "U DONT KNOW ME.Try again!";
+      }
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>
